@@ -2,7 +2,7 @@
 
 An interactive MLB Statcast heat map showing batting average, SLG, and HR rate by exit velocity and launch angle. Includes player and team overlays, year filtering, and distribution histograms.
 
-**Live report →** `[https://mikeharman89.github.io/EV-LA-HEATMAP/](https://mikeharman89.github.io/EV-LA-HEATMAP/)`
+**Live report →** [https://mikeharman89.github.io/EV-LA-HEATMAP/](https://mikeharman89.github.io/EV-LA-HEATMAP/)
 
 ---
 
