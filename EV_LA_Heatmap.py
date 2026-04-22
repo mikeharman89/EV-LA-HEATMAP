@@ -32,7 +32,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="EV x LA Contact Quality Heat Map")
     parser.add_argument("--years", nargs="+", type=int, default=[2025, datetime.today().year],
                         help="Season years to include e.g. --years 2025 2026")
-    parser.add_argument("--out",   default="/Users/michaelharman/Projects/EV_LA_HEATMAP/ev_la_heatmap.html")
+    parser.add_argument("--out",   default="/Users/michaelharman/Projects/EV_LA_HEATMAP/index.html")
     return parser.parse_args()
 
 
@@ -1144,7 +1144,7 @@ def main():
     year_label = " · ".join(str(y) for y in years)
     html = (HTML
         .replace("{{YEARS}}",     year_label)
-        .replace("{{GENERATED}}", datetime.now().strftime("%b %d, %Y %H:%M"))
+        .replace("{{GENERATED}}", (lambda now: now.strftime("%b %d, %Y") + now.strftime(" %I:%M %p ").lstrip("0").replace(" 0", " ") + ("MDT" if (3 <= now.month <= 11) else "MST"))(datetime.now(tz=__import__('zoneinfo').ZoneInfo("America/Denver"))))
         .replace("{{EV_STEP}}",   str(EV_STEP))
         .replace("{{LA_STEP}}",   str(LA_STEP))
         .replace("{{DATA_JSON}}", json.dumps(data_payload))
