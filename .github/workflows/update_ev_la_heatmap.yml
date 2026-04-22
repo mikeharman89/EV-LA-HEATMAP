@@ -29,7 +29,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run EV/LA heatmap
-        run: python3 ev_la_heatmap.py --years 2025 2026 --out ev_la_heatmap.html
+        run: python3 EV_LA_Heatmap.py --years 2025 2026 --out ev_la_heatmap.html
 
       - name: Commit and push report
         run: |
